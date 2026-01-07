@@ -18,16 +18,18 @@ Exit codes:
   2 = Critical violations found
 """
 
+import os
 import yaml
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Tuple
 
-LEDGER_DIR = Path(__file__).parent.parent
-SKILLS_ACTIVE = LEDGER_DIR / "ledger" / "skills" / "active.yaml"
-SKILLS_HISTORY = LEDGER_DIR / "ledger" / "skills" / "history.yaml"
-SKILLS_LEGACY = LEDGER_DIR / "ledger" / "skills.yaml"
+# Use OPERATOR_LEDGER_DIR env var, fallback to ./ledger for backwards compatibility
+LEDGER_DIR = Path(os.environ.get("OPERATOR_LEDGER_DIR", Path(__file__).parent.parent / "ledger"))
+SKILLS_ACTIVE = LEDGER_DIR / "skills" / "active.yaml"
+SKILLS_HISTORY = LEDGER_DIR / "skills" / "history.yaml"
+SKILLS_LEGACY = LEDGER_DIR / "skills.yaml"
 
 class TemporalGateTests:
     def __init__(self):
