@@ -56,7 +56,7 @@ def test_deduplication_workflow_smoke():
             source="claude-code-cache",
             source_path="/tmp/test.jsonl",
             timestamp="2025-12-13T12:00:00.000Z",
-            project_path="/Users/kylejensen/Desktop/operator"
+            project_path="/path/to/your/ledger"
         )
 
         # Save history
@@ -80,7 +80,7 @@ def test_fallback_matching_smoke():
             {
                 "session_id": "abc123",
                 "timestamp": "2025-12-13T12:00:00.000Z",
-                "project_path": "/Users/kylejensen/Desktop/operator"
+                "project_path": "/path/to/your/ledger"
             }
         ]
     }
@@ -89,14 +89,14 @@ def test_fallback_matching_smoke():
     assert is_duplicate_by_timestamp_and_project(
         history,
         timestamp="2025-12-13T12:02:00.000Z",
-        project_path="/Users/kylejensen/Desktop/operator"
+        project_path="/path/to/your/ledger"
     ) is True
 
     # Different project = not duplicate
     assert is_duplicate_by_timestamp_and_project(
         history,
         timestamp="2025-12-13T12:02:00.000Z",
-        project_path="/Users/kylejensen/Desktop/other-project"
+        project_path="/path/to/other-project"
     ) is False
 
 

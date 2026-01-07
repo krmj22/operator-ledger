@@ -14,7 +14,7 @@ PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 SERVICE="${1:-}"
 case "${SERVICE}" in
     ingestion)
-        LABEL="com.kylejensen.operator-ingestion"
+        LABEL="com.operator.ingestion"
         DESCRIPTION="Transcript ingestion (weekly)"
         ;;
     github-sync)

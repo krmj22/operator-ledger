@@ -67,3 +67,6 @@ packages/ledger/status.yaml
 # Local settings
 .claude/settings.local.json
 *.backup
+__pycache__/
+*.pyc
+*.pyo

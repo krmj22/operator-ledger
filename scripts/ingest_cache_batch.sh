@@ -24,8 +24,9 @@ fi
 
 # Paths
 CACHE_DIR="$HOME/.claude/projects"
-MANUAL_TRANSCRIPT_DIR="$HOME/Desktop/projects/JSON Transcription/ui/output"
-HISTORY_FILE="/Users/kylejensen/Desktop/operator/ledger/ingestion_history.yaml"
+MANUAL_TRANSCRIPT_DIR="${MANUAL_TRANSCRIPT_DIR:-$HOME/Desktop/projects/JSON Transcription/ui/output}"  # User can override
+LEDGER_DIR="${OPERATOR_LEDGER_DIR:-./ledger}"
+HISTORY_FILE="${LEDGER_DIR}/_meta/ingestion_history.yaml"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CAPTURE_DIR="${SCRIPT_DIR}/../packages/capture"
 

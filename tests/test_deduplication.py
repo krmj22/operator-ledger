@@ -127,10 +127,10 @@ def test_fallback_matching_by_timestamp_and_project():
             {
                 "session_id": "abc123",
                 "source": "claude-code-cache",
-                "source_path": "/Users/kylejensen/.claude/projects/-Users-kylejensen-Desktop-operator/session1.jsonl",
+                "source_path": "~/.claude/projects/-path-to-your-ledger/session1.jsonl",
                 "ingestion_date": "2025-12-13",
                 "timestamp": "2025-12-13T12:00:00.000Z",
-                "project_path": "/Users/kylejensen/Desktop/operator"
+                "project_path": "/path/to/your/ledger"
             }
         ]
     }
@@ -139,19 +139,19 @@ def test_fallback_matching_by_timestamp_and_project():
     assert is_duplicate_by_timestamp_and_project(
         history,
         timestamp="2025-12-13T12:02:00.000Z",
-        project_path="/Users/kylejensen/Desktop/operator"
+        project_path="/path/to/your/ledger"
     ) is True
 
     # Different timestamp (>5 minutes) = not duplicate
     assert is_duplicate_by_timestamp_and_project(
         history,
         timestamp="2025-12-13T13:00:00.000Z",
-        project_path="/Users/kylejensen/Desktop/operator"
+        project_path="/path/to/your/ledger"
     ) is False
 
     # Same timestamp but different project = not duplicate
     assert is_duplicate_by_timestamp_and_project(
         history,
         timestamp="2025-12-13T12:02:00.000Z",
-        project_path="/Users/kylejensen/Desktop/other-project"
+        project_path="/path/to/other-project"
     ) is False

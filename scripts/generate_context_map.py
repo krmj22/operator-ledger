@@ -4,7 +4,7 @@ Generate expanded context_map.yaml from ledger files.
 
 This script extracts actionable context from skills.yaml, projects.yaml,
 ethos.yaml, and philosophy.yaml to create a comprehensive context_map.yaml
-that enables agents to immediately understand Kyle's capabilities without
+that enables agents to immediately understand operator's capabilities without
 parsing multiple files.
 
 Usage:

@@ -31,13 +31,13 @@ The ledger audit system detects gaps between filesystem reality and ledger docum
 **Example:**
 ```
 1. Repos in ~/Desktop/projects/ not in repos.yaml:
-  ❌ kyleos (exists but not in ledger)
+  ❌ example-project (exists but not in ledger)
 ```
 
 **Action:** Add to `repos.yaml`:
 ```yaml
-- name: "KyleOS"
-  repo_path: "/Users/kylejensen/Desktop/projects/kyleos"
+- name: "MyProject"
+  repo_path: "/path/to/your/project"
   status: ACTIVE
   note: "Description here"
 ```
@@ -136,12 +136,12 @@ Create `~/Library/LaunchAgents/com.operator.ledger-audit.plist`:
     <string>com.operator.ledger-audit</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/kylejensen/Desktop/operator/scripts/ledger-audit.sh</string>
+        <string>/path/to/operator-ledger/scripts/ledger-audit.sh</string>
     </array>
     <key>StandardOutPath</key>
-    <string>/Users/kylejensen/Desktop/operator/ledger/logs/audit-latest.log</string>
+    <string>/path/to/operator-ledger/ledger/logs/audit-latest.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/kylejensen/Desktop/operator/ledger/logs/audit-latest.log</string>
+    <string>/path/to/operator-ledger/ledger/logs/audit-latest.log</string>
     <key>StartCalendarInterval</key>
     <dict>
         <key>Weekday</key>
@@ -172,7 +172,7 @@ Add to crontab:
 crontab -e
 
 # Add line:
-0 9 * * 0 /Users/kylejensen/Desktop/operator/scripts/ledger-audit.sh >> /Users/kylejensen/Desktop/operator/ledger/logs/audit-$(date +\%Y-\%m-\%d).log 2>&1
+0 9 * * 0 /path/to/operator-ledger/scripts/ledger-audit.sh >> /path/to/operator-ledger/ledger/logs/audit-$(date +\%Y-\%m-\%d).log 2>&1
 ```
 
 ## Gap Closure Workflow
@@ -192,31 +192,31 @@ crontab -e
 
 Gaps detected by audit can become issues:
 
-**Example:** If audit finds kyleos repo not in ledger:
+**Example:** If audit finds example-project repo not in ledger:
 
 Create issue:
 ```markdown
-feat: Add kyleos to repos.yaml
+feat: Add example-project to repos.yaml
 
 **Files:** `./ledger/projects/repos.yaml`
 **Estimate:** 15min
 
 ## Problem
-kyleos exists in ~/Desktop/projects/ but not documented in ledger
+example-project exists in ~/Desktop/projects/ but not documented in ledger
 
 ## Implementation
 Add entry to repos.yaml:
-- name: "KyleOS"
-  repo_path: "/Users/kylejensen/Desktop/projects/kyleos"
+- name: "MyProject"
+  repo_path: "/path/to/your/project"
   status: [determine status]
 
 ## Verification
 ./scripts/ledger-audit.sh
-# Should not show kyleos gap
+# Should not show example-project gap
 
 ## Done When
-- [ ] kyleos entry added to repos.yaml
-- [ ] Audit script passes (no kyleos gap)
+- [ ] example-project entry added to repos.yaml
+- [ ] Audit script passes (no example-project gap)
 ```
 
 ## Troubleshooting
