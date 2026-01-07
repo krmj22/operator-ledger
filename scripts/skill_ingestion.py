@@ -1481,7 +1481,7 @@ def main():
         return 1
 
     # Load deduplication history
-    history_file = operator_root / "packages" / "ledger" / "ingestion_history.yaml"
+    history_file = ledger_dir / "_meta" / "ingestion_history.yaml"
     ingestion_history = load_ingestion_history(history_file)
 
     # Parse transcripts based on source selection

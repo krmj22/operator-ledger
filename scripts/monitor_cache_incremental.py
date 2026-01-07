@@ -6,6 +6,7 @@ Designed for real-time monitoring (launchd every 5 minutes).
 Phase 4 of #83 - Real-time monitoring with deduplication.
 """
 
+import os
 import sys
 from pathlib import Path
 import time
@@ -140,7 +141,10 @@ def incremental_ingest(cache_dir: Path, history_file: Path, since_minutes: int =
 if __name__ == "__main__":
     cache_dir = Path.home() / ".claude" / "projects"
     gemini_cache_dir = Path.home() / ".gemini" / "tmp"
-    history_file = Path(__file__).parent.parent / "packages" / "ledger" / "ingestion_history.yaml"
+
+    # Use OPERATOR_LEDGER_DIR env var, fallback to ./ledger for backwards compatibility
+    ledger_dir = Path(os.getenv('OPERATOR_LEDGER_DIR', Path(__file__).parent.parent / 'ledger'))
+    history_file = ledger_dir / "_meta" / "ingestion_history.yaml"
 
     # Check for recent sessions (last 10 minutes by default)
     success = incremental_ingest(cache_dir, history_file, since_minutes=10, gemini_cache_dir=gemini_cache_dir)
