@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.2.0",
+  "session_id": "abc123",
+  "interactions": [
+    {
+      "id": "interaction-001",
+      "type": "user_prompt",
+      "timestamp": "2025-01-13T10:00:05Z"
+    }
+  ]
+}

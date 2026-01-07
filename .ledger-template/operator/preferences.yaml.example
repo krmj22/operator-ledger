@@ -1,0 +1,26 @@
+# Operator Preferences
+# Communication style, development preferences, and workflow patterns
+
+preferences:
+  communication:
+    style: "Direct and concise"
+    tone: "Professional but casual"
+    detail_level: "Detailed when necessary"
+
+  development:
+    preferred_languages:
+      - Python
+      - Bash
+      - TypeScript
+    frameworks: []
+    tools: []
+
+  workflow:
+    daily_schedule: "Flexible"
+    focus_hours: "Morning"
+    break_frequency: "As needed"
+
+  ai_interaction:
+    preferred_format: "Structured markdown"
+    code_style: "Clean and documented"
+    testing_philosophy: "Test-driven when appropriate"

@@ -1,0 +1,20 @@
+# Technical Decisions
+# Document architectural and technical decisions for future reference
+
+decisions:
+  - id: "DEC-001"
+    topic: "Example Technical Decision"
+    decision: "Brief summary of the decision made"
+    rationale: "Reasoning behind the decision"
+    date: "2025-01-01"
+    status: "active"
+    impact: "medium"
+    project: "example-project"
+    alternatives_considered:
+      - name: "Alternative Approach"
+        rejected_because: "Reason for rejection"
+    evidence:
+      - type: "code"
+        ref: "path/to/implementation.py"
+      - type: "test"
+        ref: "path/to/test.py"

@@ -1,0 +1,18 @@
+# Active Repositories and Projects
+# Track your active development projects
+
+projects:
+  - name: "Example Project"
+    alias: "example-proj"
+    status: "ACTIVE"
+    stage: "development"
+    last_update: "2025-01-01"
+    objective: "Brief description of project objective"
+    confidence: "medium"
+    tech_stack:
+      - Python
+      - Bash
+    skills_demonstrated:
+      - skill: "Python Development"
+        level: 2
+        evidence: "Implemented core features"

@@ -1,0 +1,27 @@
+{
+  "sessionId": "1822dc95-e8b6-4732-a72f-d7e216345b2e",
+  "projectHash": "dc9696f3ece1cf3dd76801a36f5724909dde40824044f86d56327c4eae2a10a8",
+  "startTime": "2025-12-12T19:38:08.114Z",
+  "lastUpdated": "2025-12-12T19:39:00.363Z",
+  "messages": [
+    {
+      "id": "3594d8b1-418b-4cb0-a5a1-635ee8022b49",
+      "timestamp": "2025-12-12T19:38:08.114Z",
+      "type": "user",
+      "content": "Test user message"
+    },
+    {
+      "id": "96cfcf85-7779-48b2-a142-3d37523862eb",
+      "timestamp": "2025-12-12T19:38:38.429Z",
+      "type": "gemini",
+      "content": "Test gemini response",
+      "toolCalls": [
+        {
+          "id": "search-123",
+          "name": "search_file_content",
+          "result": [{"output": "Test output"}]
+        }
+      ]
+    }
+  ]
+}

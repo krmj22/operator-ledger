@@ -1,0 +1,39 @@
+# Operator Identity
+# Who you are - professional and personal identity
+
+identity:
+  full_name: "Your Full Name"
+  nickname: "YourNickname"
+  phone: "555-555-5555"
+  location: "City, State"
+  dob: "YYYY-MM-DD"
+  age: 30
+
+  professional:
+    email: your.email@example.com
+    github: github.com/yourusername
+    github_username: yourusername
+    github_created: "YYYY-MM-DD"
+    linkedin: linkedin.com/in/yourprofile
+    display_name: "Your Name"
+
+  personal:
+    primary_email: personal@example.com
+    note: "Personal email is private - do not publish"
+
+  positioning: "Brief professional positioning statement"
+
+  core_thesis: |
+    Your core thesis or philosophy about your work approach.
+    Can be multiple lines.
+
+  self_description:
+    strengths:
+      - "Strength 1"
+      - "Strength 2"
+      - "Strength 3"
+    credibility_status: "Brief status description"
+
+  career:
+    current_status: "Your current role/status"
+    note: "Additional career context"

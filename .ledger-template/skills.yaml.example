@@ -1,0 +1,14 @@
+# Skills - Root level file for backward compatibility
+# For split structure, see skills/active.yaml and skills/history.yaml
+
+skills:
+  development:
+    backend:
+      - skill: "Example Skill"
+        level: 1
+        validation: "verified"
+        last_seen: "2025-01-01"
+        evidence:
+          - source: "transcript-001.json"
+            date: "2025-01-01"
+            note: "Example evidence"

@@ -1,0 +1,11 @@
+# Projects - Root level file
+# Track your active development projects
+
+projects:
+  - name: "Example Project"
+    alias: "example"
+    status: "ACTIVE"
+    stage: "development"
+    last_update: "2025-01-01"
+    objective: "Example project objective"
+    confidence: "medium"

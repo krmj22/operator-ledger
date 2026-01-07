@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.2.0",
+  "session_id": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "start_time": "2025-01-13T10:00:00Z",
+  "interactions": [
+    {
+      "id": "interaction-001",
+      "type": "user_prompt",
+      "timestamp": "2025-01-13T10:00:05Z",
+      "content": "Help me write a smoke test for the operator pipeline"
+    },
+    {
+      "id": "interaction-002",
+      "type": "assistant_response",
+      "timestamp": "2025-01-13T10:00:10Z",
+      "content": "I'll help you create a comprehensive smoke test"
+    },
+    {
+      "id": "interaction-003",
+      "type": "user_prompt",
+      "timestamp": "2025-01-13T10:01:00Z",
+      "content": "Make sure it validates the session envelope contract"
+    }
+  ]
+}

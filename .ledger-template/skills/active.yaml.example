@@ -1,0 +1,25 @@
+# Active Skills
+# Skills currently in active use with high signal-to-noise
+
+skills:
+  development:
+    backend:
+      - skill: "Python Development"
+        level: 2
+        validation: "consistent"
+        last_seen: "2025-01-01"
+        evidence:
+          - source: "transcript-001.json"
+            date: "2025-01-01"
+            note: "Example evidence of skill usage"
+
+  operations:
+    systems:
+      - skill: "Bash Scripting"
+        level: 1
+        validation: "verified"
+        last_seen: "2025-01-01"
+        evidence:
+          - source: "transcript-002.json"
+            date: "2025-01-01"
+            note: "Example bash script implementation"

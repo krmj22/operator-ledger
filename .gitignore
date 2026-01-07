@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (should be external via OPERATOR_DATA_DIR)
+*.json.bak
+transcripts/
+archive/
+ledger_logs/*.yaml
+
+# Ledger (personal data - must use OPERATOR_LEDGER_DIR)
+ledger/
+
+# Generated files (from smoke test and analysis)
+dashboard_data.js
+.ledger_hashes.json
+.ledger_verify_report.json
+logs/
+
+# Ledger files (auto-updated, not committed)
+packages/ledger/status.yaml
+
+# Temporary
+*.tmp
+*.log
+.cache/
+.last_ingestion_timestamp
+
+# Local settings
+.claude/settings.local.json
+*.backup
