@@ -12,9 +12,13 @@ REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 # Use OPERATOR_DATA_DIR env var if set, otherwise fail with clear error
 TRANSCRIPT_DIR="${OPERATOR_DATA_DIR}"
+# Expand tilde to home directory
+TRANSCRIPT_DIR="${TRANSCRIPT_DIR/#\~/$HOME}"
 
 # Use OPERATOR_LEDGER_DIR env var, fallback to ./ledger for backwards compatibility
 LEDGER_DIR="${OPERATOR_LEDGER_DIR:-${REPO_ROOT}/ledger}"
+# Expand tilde to home directory
+LEDGER_DIR="${LEDGER_DIR/#\~/$HOME}"
 LOG_DIR="${LEDGER_DIR}/logs"
 LOG_FILE="${LOG_DIR}/ingestion_$(date +%Y%m%d_%H%M%S).log"
 CLAUDE_BIN="/opt/homebrew/bin/claude"

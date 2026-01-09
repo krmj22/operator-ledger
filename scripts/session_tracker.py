@@ -543,10 +543,11 @@ def main():
 
     # Get paths from environment or arguments
     operator_root = Path(__file__).parent.parent
+    ledger_dir = Path(os.getenv("OPERATOR_LEDGER_DIR", str(operator_root / "ledger"))).expanduser()
 
-    transcript_dir = args.transcript_dir or Path(os.getenv("OPERATOR_DATA_DIR", operator_root / "data"))
-    projects_yaml = args.projects_yaml or operator_root / "ledger" / "projects" / "repos.yaml"
-    sessions_yaml = args.sessions_yaml or operator_root / "ledger" / "activity" / "sessions.yaml"
+    transcript_dir = args.transcript_dir or Path(os.getenv("OPERATOR_DATA_DIR", str(operator_root / "data"))).expanduser()
+    projects_yaml = args.projects_yaml or ledger_dir / "projects" / "repos.yaml"
+    sessions_yaml = args.sessions_yaml or ledger_dir / "activity" / "sessions.yaml"
 
     # Validate paths
     if not projects_yaml.exists():

@@ -379,15 +379,16 @@ def main():
     """Main execution function."""
     # Get paths from environment
     operator_root = Path(__file__).resolve().parent.parent
-    transcript_dir = Path(os.getenv('OPERATOR_DATA_DIR', ''))
+    ledger_dir = Path(os.getenv('OPERATOR_LEDGER_DIR', str(operator_root / 'ledger'))).expanduser()
+    transcript_dir = Path(os.getenv('OPERATOR_DATA_DIR', '')).expanduser()
 
     if not transcript_dir or not transcript_dir.exists():
         print("❌ Error: OPERATOR_DATA_DIR not set or does not exist")
         return 1
 
-    report_path = operator_root / "ledger" / "skill_ingestion_report.yaml"
-    skills_active_path = operator_root / "ledger" / "skills" / "active.yaml"
-    logs_dir = operator_root / "ledger" / "logs"
+    report_path = ledger_dir / "skill_ingestion_report.yaml"
+    skills_active_path = ledger_dir / "skills" / "active.yaml"
+    logs_dir = ledger_dir / "logs"
 
     # Ensure logs directory exists
     logs_dir.mkdir(parents=True, exist_ok=True)

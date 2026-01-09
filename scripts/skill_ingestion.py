@@ -1376,7 +1376,7 @@ def generate_report(all_detections: Dict, all_transcripts: List[Dict], existing_
 
         # Build evidence_sessions from evidence samples (IAW Issue #71)
         evidence_samples = skill_data.get("evidence", [])[:3]  # Top 3 evidence samples
-        data_dir = Path(os.getenv('OPERATOR_DATA_DIR', ''))
+        data_dir = Path(os.getenv('OPERATOR_DATA_DIR', '')).expanduser() if os.getenv('OPERATOR_DATA_DIR') else Path('')
         evidence_sessions = build_evidence_sessions(evidence_samples, data_dir, all_transcripts)
 
         suggestion = {
@@ -1430,11 +1430,11 @@ def main():
         "--transcript-dir",
         type=Path,
         # Use OPERATOR_DATA_DIR env var if set, otherwise error
-        default=Path(os.getenv('OPERATOR_DATA_DIR', '')),
+        default=Path(os.getenv('OPERATOR_DATA_DIR', '')).expanduser() if os.getenv('OPERATOR_DATA_DIR') else '',
         help="Directory containing transcript JSON files"
     )
     # Use OPERATOR_LEDGER_DIR env var, fallback to ./ledger for backwards compatibility
-    ledger_dir = Path(os.getenv('OPERATOR_LEDGER_DIR', operator_root / 'ledger'))
+    ledger_dir = Path(os.getenv('OPERATOR_LEDGER_DIR', str(operator_root / 'ledger'))).expanduser()
 
     parser.add_argument(
         "--skills-file",
