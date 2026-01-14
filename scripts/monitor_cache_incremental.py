@@ -143,7 +143,7 @@ if __name__ == "__main__":
     gemini_cache_dir = Path.home() / ".gemini" / "tmp"
 
     # Use OPERATOR_LEDGER_DIR env var, fallback to ./ledger for backwards compatibility
-    ledger_dir = Path(os.getenv('OPERATOR_LEDGER_DIR', Path(__file__).parent.parent / 'ledger'))
+    ledger_dir = Path(os.getenv('OPERATOR_LEDGER_DIR', Path(__file__).parent.parent / 'ledger')).expanduser()
     history_file = ledger_dir / "_meta" / "ingestion_history.yaml"
 
     # Check for recent sessions (last 10 minutes by default)
