@@ -34,7 +34,7 @@ from datetime import datetime, UTC
 
 # Use OPERATOR_LEDGER_DIR env var, fallback to ./ledger for backwards compatibility
 REPO_ROOT = Path(__file__).resolve().parents[1]
-ROOT = Path(os.getenv('OPERATOR_LEDGER_DIR', REPO_ROOT / 'ledger'))
+ROOT = Path(os.getenv('OPERATOR_LEDGER_DIR', REPO_ROOT / 'ledger')).expanduser()
 UPDATE_BASELINE = "--update-baseline" in sys.argv
 
 
