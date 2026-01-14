@@ -86,7 +86,7 @@ def check_yaml_parse(files: list[Path]):
 
 
 def check_index_references():
-    idx = ROOT / "ledger" / "_meta" / "index.yaml"
+    idx = ROOT / "_meta" / "index.yaml"
     if not idx.exists():
         return [{"file": str(idx), "status": "FAIL", "msg": "index.yaml missing"}], 1, 0
 
@@ -106,7 +106,7 @@ def check_index_references():
             files = dir_data.get("files", [])
             for filename in files:
                 if isinstance(filename, str) and filename.endswith(".yaml"):
-                    file_path = ROOT / "ledger" / dir_name / filename
+                    file_path = ROOT / dir_name / filename
                     if not file_path.exists():
                         missing.append(f"{dir_name}/{filename}")
     except Exception as e:
@@ -190,7 +190,7 @@ def check_hash_drift(files: list[Path]):
 
 
 def check_last_verified(files: list[Path]):
-    idx = ROOT / "ledger" / "_meta" / "index.yaml"
+    idx = ROOT / "_meta" / "index.yaml"
     data, err = load_yaml(idx)
     if not idx.exists():
         return [{"status": "WARN", "msg": "index.yaml missing; cannot check last_verified"}], 0, 1
@@ -231,7 +231,7 @@ def check_sessions_validation():
     - No duplicate session_ids
     - session_id format is valid (SHA-256)
     """
-    sessions_file = ROOT / "ledger" / "activity" / "sessions.yaml"
+    sessions_file = ROOT / "activity" / "sessions.yaml"
     if not sessions_file.exists():
         return [{"file": str(sessions_file), "status": "WARN", "msg": "sessions.yaml missing (run daily_ingestion.sh to create)"}], 0, 1
 
@@ -318,9 +318,9 @@ def check_outcome_validation():
     Level 3: External validation required (FAIL if missing)
     """
     # Try split structure first (IAW Issue #58)
-    active_file = ROOT / "ledger" / "skills" / "active.yaml"
-    history_file = ROOT / "ledger" / "skills" / "history.yaml"
-    legacy_file = ROOT / "ledger" / "skills.yaml"
+    active_file = ROOT / "skills" / "active.yaml"
+    history_file = ROOT / "skills" / "history.yaml"
+    legacy_file = ROOT / "skills.yaml"
 
     files_to_check = []
     if active_file.exists() and history_file.exists():
@@ -487,9 +487,9 @@ def check_validation_types():
     - Warns if agent-assessed skills have external validation evidence
     """
     # Try split structure first (IAW Issue #58)
-    active_file = ROOT / "ledger" / "skills" / "active.yaml"
-    history_file = ROOT / "ledger" / "skills" / "history.yaml"
-    legacy_file = ROOT / "ledger" / "skills.yaml"
+    active_file = ROOT / "skills" / "active.yaml"
+    history_file = ROOT / "skills" / "history.yaml"
+    legacy_file = ROOT / "skills.yaml"
 
     files_to_check = []
     if active_file.exists() and history_file.exists():
@@ -608,9 +608,9 @@ def check_review_flags():
     Returns tuple of (issues, failures, warnings)
     """
     # Load skills from appropriate file
-    skills_path = ROOT / "ledger" / "skills.yaml"
-    active_path = ROOT / "ledger" / "skills" / "active.yaml"
-    history_path = ROOT / "ledger" / "skills" / "history.yaml"
+    skills_path = ROOT / "skills.yaml"
+    active_path = ROOT / "skills" / "active.yaml"
+    history_path = ROOT / "skills" / "history.yaml"
 
     # Prioritize skills.yaml if it exists
     if skills_path.exists():
@@ -771,9 +771,9 @@ def check_level0_readiness():
     Level 0 with invalid readiness: FAIL
     """
     # Try split structure first (IAW Issue #58)
-    active_file = ROOT / "ledger" / "skills" / "active.yaml"
-    history_file = ROOT / "ledger" / "skills" / "history.yaml"
-    legacy_file = ROOT / "ledger" / "skills.yaml"
+    active_file = ROOT / "skills" / "active.yaml"
+    history_file = ROOT / "skills" / "history.yaml"
+    legacy_file = ROOT / "skills.yaml"
 
     files_to_check = []
     if active_file.exists() and history_file.exists():
@@ -877,8 +877,8 @@ def check_project_skill_references():
 
     Returns tuple of (issues, failures, warnings)
     """
-    projects_file = ROOT / "ledger" / "projects" / "repos.yaml"
-    skills_file = ROOT / "ledger" / "skills" / "active.yaml"
+    projects_file = ROOT / "projects" / "repos.yaml"
+    skills_file = ROOT / "skills" / "active.yaml"
     active_skills_file = ROOT / "skills_active.yaml"
 
     # Use active skills if split structure exists
@@ -1016,8 +1016,8 @@ def check_timestamp_consistency():
 
     Returns tuple of (issues, failures, warnings)
     """
-    projects_file = ROOT / "ledger" / "projects" / "repos.yaml"
-    skills_file = ROOT / "ledger" / "skills" / "active.yaml"
+    projects_file = ROOT / "projects" / "repos.yaml"
+    skills_file = ROOT / "skills" / "active.yaml"
     active_skills_file = ROOT / "skills_active.yaml"
 
     # Use active skills if split structure exists
