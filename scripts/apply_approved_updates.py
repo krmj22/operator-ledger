@@ -190,7 +190,7 @@ def main():
     operator_root = script_dir.parent  # scripts -> operator
 
     # Use OPERATOR_LEDGER_DIR env var, fallback to ./ledger for backwards compatibility
-    ledger_dir = Path(os.getenv('OPERATOR_LEDGER_DIR', operator_root / 'ledger'))
+    ledger_dir = Path(os.getenv('OPERATOR_LEDGER_DIR', operator_root / 'ledger')).expanduser()
 
     parser.add_argument(
         "--report",

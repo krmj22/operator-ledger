@@ -33,7 +33,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 # Use OPERATOR_LEDGER_DIR env var, fallback to ./ledger for backwards compatibility
-LEDGER_DIR = Path(os.getenv('OPERATOR_LEDGER_DIR', Path(__file__).resolve().parents[1] / 'ledger'))
+LEDGER_DIR = Path(os.getenv('OPERATOR_LEDGER_DIR', Path(__file__).resolve().parents[1] / 'ledger')).expanduser()
 ROOT = LEDGER_DIR
 
 
